@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: daftarku-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: daftarku_user
+      POSTGRES_PASSWORD: daftarku_pass
+      POSTGRES_DB: daftarku_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - daftarku_pgdata:/var/lib/postgresql/data
+
+volumes:
+  daftarku_pgdata:
