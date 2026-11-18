@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@keyframes daftarkuMarquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes daftarkuFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+@keyframes daftarkuSpinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-daftarku-marquee {
+  display: flex;
+  width: max-content;
+  animation: daftarkuMarquee 28s linear infinite;
+}
+.animate-daftarku-marquee:hover { animation-play-state: paused; }
+.animate-daftarku-float { animation: daftarkuFloat 5s ease-in-out infinite; }
+.animate-daftarku-spin-slow { animation: daftarkuSpinSlow 18s linear infinite; }
+:root {
+  --dk-primary: #155EEF;
+  --dk-navy: #102B56;
+  --dk-electric: #2589FF;
+  --dk-orange: #FF9F1C;
+  --dk-bg: #F5F8FF;
+  --dk-white: #FFFFFF;
+  --dk-text: #172B4D;
+}
+
+body {
+  background-color: #F5F8FF;
+  color: #172B4D;
+}
+.dk-digital-pass {
+  position: relative;
+  overflow: hidden;
+}
+.dk-digital-pass::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.42) 50%, transparent 80%);
+  transform: rotate(18deg);
+  animation: dkShimmer 4.2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
